@@ -39,8 +39,8 @@ def login():
         user = User.objects(email=data["email"]).first()
         if user:
             if check_password_hash(user.password, data["password"]):
-                fullname = f"{user.givenName}  {user.surName}"
-                identity = {"fullname": fullname, "email": user.email}
+                fullName = f"{user.firstName}  {user.lastName}"
+                identity = {"fullName": fullName, "email": user.email}
                 access_token = create_access_token(identity=identity)
                 return Response(
                     json.dumps(

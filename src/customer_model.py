@@ -14,8 +14,8 @@ class PhoneNumber(me.EmbeddedDocument):
 
 
 class Customer(me.Document):
-    givenName = me.StringField(required=True)
-    surName = me.StringField(required=True)
+    firstName = me.StringField(required=True)
+    lastName = me.StringField(required=True)
     email = me.StringField(required=True, unique=True)
     afm = me.StringField(required=True, unique=True)
     phoneNumbers = me.ListField(me.EmbeddedDocumentField(PhoneNumber))
